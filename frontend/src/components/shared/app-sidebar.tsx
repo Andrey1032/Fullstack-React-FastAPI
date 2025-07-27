@@ -23,20 +23,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     >([]);
 
     const fetchCurrencies = () => {
-        axios
-            .get(
-                "https://backend-dtrtyixp8-andreys-projects-9f139c10.vercel.app/cryptocurrencies"
+        axios.get("http://localhost:8000/cryptocurrencies").then((data) =>
+            setData(
+                data.data.map((item: { name: string; id: number }) => ({
+                    id: item.id,
+                    title: item.name,
+                    url: `/${item.id}`,
+                    imageUrl: `https://s2.coinmarketcap.com/static/img/coins/64x64/${item.id}.png`,
+                }))
             )
-            .then((data) =>
-                setData(
-                    data.data.map((item: { name: string; id: number }) => ({
-                        id: item.id,
-                        title: item.name,
-                        url: `/${item.id}`,
-                        imageUrl: `https://s2.coinmarketcap.com/static/img/coins/64x64/${item.id}.png`,
-                    }))
-                )
-            );
+        );
     };
 
     React.useEffect(() => {
