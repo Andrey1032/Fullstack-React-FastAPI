@@ -26,7 +26,7 @@ export default function CardCurrency() {
         setCurrencyData(null);
         axios
             .get(
-                `https://backend-henna-alpha-68.vercel.app//cryptocurrencies/${currentCurrencyId}`
+                `https://backend-dtrtyixp8-andreys-projects-9f139c10.vercel.app/cryptocurrencies/${currentCurrencyId}`
             )
             .then((data) => setCurrencyData(data.data));
     }, [currentCurrencyId]);

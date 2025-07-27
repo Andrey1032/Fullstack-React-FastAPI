@@ -24,7 +24,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
     const fetchCurrencies = () => {
         axios
-            .get("https://backend-henna-alpha-68.vercel.app//cryptocurrencies")
+            .get(
+                "https://backend-dtrtyixp8-andreys-projects-9f139c10.vercel.app/cryptocurrencies"
+            )
             .then((data) =>
                 setData(
                     data.data.map((item: { name: string; id: number }) => ({
